@@ -1,0 +1,20 @@
+<h1>Listing notes</h1>
+<table>
+ <tr>
+  <th>Contents</th>
+  <th></th>
+  <th></th>
+  <th></th>
+ </tr>
+
+<% @notes.each do |note| %>
+ <tr>
+  <td id="table_header"><%= note.content %></td>
+  <td><%= link_to 'Show', note %></td>
+  <td><%= link_to 'Edit', edit_note_path(note) %></td>
+  <td><%= link_to 'Destroy', note, method: :delete, data: { comfirm: 'Are you sure?' } %> </td>
+
+<% end %>
+</table>
+
+<%= link_to 'New Note', new_note_path %>

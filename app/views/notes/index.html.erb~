@@ -1,0 +1,29 @@
+<h1>To-do list</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th class="table_header">Title</th>
+      <th class="table_header">Content</th>
+      <th class="table_header"></th>
+      <th class="table_header"></th>
+      <th class="table_header"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td class="title"><%= note.title %></td>
+        <td class="content"><%= note.content %></td>
+        <td><%= link_to 'Show', note %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Note', new_note_path %>
